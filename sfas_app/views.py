@@ -45,9 +45,9 @@ def analyze_sentiment(feedback_text, category, rating):
     compound = scores['compound']
 
     # Step 2: Determine base label
-    if compound >= 0.05:
+    if compound >= 0.15:
         label = 'positive'
-    elif compound <= -0.05:
+    elif compound <= -0.15:
         label = 'negative'
     else:
         label = 'neutral'
@@ -60,9 +60,9 @@ def analyze_sentiment(feedback_text, category, rating):
             normalized_rating = (rating - 3) / 2  
             compound = (compound + normalized_rating) / 2  
             # Recalculate sentiment label based on adjusted score
-            if compound >= 0.05:
+            if compound >= 0.15:
                 label = 'positive'
-            elif compound <= -0.05:
+            elif compound <= -0.15:
                 label = 'negative'
             else:
                 label = 'neutral'
